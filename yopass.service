@@ -1,0 +1,15 @@
+[Unit]
+Description=Yopass - Share secrets securely
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/home/cadmin/yopass/
+ExecStart=/usr/bin/docker compose -f docker-compose-prod.yml up
+ExecStop=/usr/bin/docker compose -f docker-compose-prod.yml down
+Restart=always
+User=cadmin
+Group=docker
+
+[Install]
+WantedBy=multi-user.target
