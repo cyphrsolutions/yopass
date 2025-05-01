@@ -1,30 +1,6 @@
 version: "3.8"
 
 services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - certs:/etc/nginx/certs
-      - vhost.d:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    labels:
-      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
-
-  nginx-proxy-letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion
-    restart: always
-    volumes:
-      - acme.sh:/etc/acme.sh
-      - certs:/etc/nginx/certs
-      - vhost.d:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-
   memcached:
     image: memcached
     restart: always
@@ -36,18 +12,9 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
-    environment:
-      - VIRTUAL_HOST=ots.cyphrsolutions.com
-      - LETSENCRYPT_HOST=ots.cyphrsolutions.com
-      - LETSENCRYPT_EMAIL=alerts@cyphrsolutions.com
     command: "--memcached=memcached:11211 --port 80"
-    expose:
-      - "80"
-
+    ports:
+      - "127.0.0.1:80:80"
 # yamllint disable rule:empty-values
-volumes:
-  certs:
-  vhost.d:
-  html:
-  acme.sh:
+
 # yamllint enable rule:empty-values

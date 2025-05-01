@@ -1,8 +1,8 @@
 {
   "create": {
     "title": "Encrypt message",
-    "inputSecretLabel": "Secret message",
-    "inputSecretPlaceholder": "Message to encrypt locally in your browser",
+    "inputSecretLabel": "",
+    "inputSecretPlaceholder": "Secret message",
     "buttonEncrypt": "Encrypt Message",
     "buttonEncryptLoading": "Encrypting message...",
     "inputOneTimeLabel": "One-time download",
@@ -68,9 +68,9 @@
   },
   "expiration": {
     "legend": "The encrypted message will be deleted automatically after",
-    "optionOneHourLabel": "One hour",
-    "optionOneDayLabel": "One day",
-    "optionOneWeekLabel": "One week"
+    "optionOneHourLabel": "One Hour",
+    "optionOneDayLabel": "One Day",
+    "optionOneWeekLabel": "One Week"
   },
   "features": {
     "title": "Share secrets securely with ease",
