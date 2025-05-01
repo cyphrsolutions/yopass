@@ -12,7 +12,7 @@ export const Expiration = (props: { control: Control<any> }) => {
   const { t } = useTranslation();
   return (
     <FormControl component="fieldset" margin="dense">
-      <FormLabel component="legend">{t('expiration.legend')}</FormLabel>
+      <FormLabel component="">{t('expiration.legend')}</FormLabel>
       <Controller
         rules={{ required: true }}
         control={props.control}
@@ -20,6 +20,7 @@ export const Expiration = (props: { control: Control<any> }) => {
         name="expiration"
         render={({ field }) => (
           <RadioGroup
+            style={{justifyContent: 'center'}}
             {...field}
             row
             sx={{
